@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoRia.Core", "AutoRia.Core\AutoRia.Core.csproj", "{631397C3-D69F-483D-BF4F-7A97AC9226E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoRia.Infrastructure", "AutoRia.Infrastructure\AutoRia.Infrastructure.csproj", "{8BE7A9E5-857F-4756-858C-0D81CDB3F521}"
+	ProjectSection(ProjectDependencies) = postProject
+		{631397C3-D69F-483D-BF4F-7A97AC9226E2} = {631397C3-D69F-483D-BF4F-7A97AC9226E2}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoRia.Web", "AutoRia.Web\AutoRia.Web.csproj", "{AC23EC0A-A53D-4DF5-B72B-B6FFDD4DF983}"
+	ProjectSection(ProjectDependencies) = postProject
+		{631397C3-D69F-483D-BF4F-7A97AC9226E2} = {631397C3-D69F-483D-BF4F-7A97AC9226E2}
+		{8BE7A9E5-857F-4756-858C-0D81CDB3F521} = {8BE7A9E5-857F-4756-858C-0D81CDB3F521}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{631397C3-D69F-483D-BF4F-7A97AC9226E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631397C3-D69F-483D-BF4F-7A97AC9226E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631397C3-D69F-483D-BF4F-7A97AC9226E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631397C3-D69F-483D-BF4F-7A97AC9226E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BE7A9E5-857F-4756-858C-0D81CDB3F521}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BE7A9E5-857F-4756-858C-0D81CDB3F521}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BE7A9E5-857F-4756-858C-0D81CDB3F521}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BE7A9E5-857F-4756-858C-0D81CDB3F521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC23EC0A-A53D-4DF5-B72B-B6FFDD4DF983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC23EC0A-A53D-4DF5-B72B-B6FFDD4DF983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC23EC0A-A53D-4DF5-B72B-B6FFDD4DF983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC23EC0A-A53D-4DF5-B72B-B6FFDD4DF983}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {455D9822-2D94-45A6-A455-EDE8C499EEEB}
+	EndGlobalSection
+EndGlobal

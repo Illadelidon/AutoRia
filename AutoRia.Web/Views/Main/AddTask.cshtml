@@ -1,0 +1,419 @@
+﻿@using AutoRia.Core.Entities.User;
+@using Microsoft.AspNetCore.Identity;
+@using AutoRia.Core.Dto_s.Post;
+@model AutoRia.Core.PostImageViewModel
+@inject UserManager<AppUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+    var email = await UserManager.GetEmailAsync(user);
+}
+
+<!-- Navbar -->
+<div class="container">
+    <nav class="navbar navbar-expand-lg  bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0 logotext" asp-action="Index">
+                    Auto Ria
+                </a>
+
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <!-- Icon -->
+                <a class="text-reset me-3" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <!-- Avatar -->
+
+                <a asp-action="Profile" asp-route-id="@user.Id" class="btn btn-outline-primary m-1">@user.UserName</a>
+                <a asp-action="Logout" class="btn btn-outline-primary m-1">Log Out</a>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+
+
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" asp-action="AddTask">
+            <input value="@user.Id" type="hidden" name="Id" asp-for="@Model.Post.UserId" />
+            <h4>Фото автомобіля</h4>
+
+            <!--Image-->
+            <div class="form-group">
+                <label>Image</label>
+                <div class=" input-group">
+                    <div class="custom-file">
+                        <div class="custom-file">
+                            <input type="file" multiple id="Image" name="imgs" class="custom-file-input" />
+                            <label for="Image" class="custom-file-label">Coose file...</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <hr />
+            <h4>Основна інформація</h4>
+            <div class=" row mt-5">
+                <div class="col-2 text-end">
+                    <h5>Тип транспорту:</h5>
+                </div>
+                <div class="col-4">
+                    <select asp-for="@Model.Post.TypeCar" name="TypeCar" required id="TypeCar" class="form-select" aria-label="Default select example">
+                       
+                        <option value="Легкові">Легкові</option>
+                        <option value="Мото">Мото</option>
+                        <option value="Вантажівки">Вантажівки</option>
+                        <option value="Спецтехніка">Спецтехніка</option>
+                        <option value="Автобуси">Автобуси</option>
+                        <option value="Водний транспорт">Водний транспорт</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row mt-3">
+                <div class="col-2 text-end">
+                    <h5>Марка авто:</h5>
+                </div>
+                <div class="col-4">
+                    <select asp-for="@Model.Post.BrandCar" name="BrandCar" required id="BrandCar" class="form-select" aria-label="Default select example">
+                      
+                        <option value="BMW">BMW</option>
+                        <option value="Audi">Audi</option>
+                        <option value="Mercedes-Benz">Mercedes-Benz</option>
+                        <option value="Subaru">Subaru</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Chevrolet">Chevrolet</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Kia">Kia</option>
+                        <option value="Mazda">Mazda</option>
+                        <option value="Nissan">Nissan</option>
+                        <option value="Skoda">Skoda</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="Volvo">Volvo</option>
+                        <option value="Lexus">Lexus</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row mt-3">
+                <div class="col-2 text-end">
+                    <h5>Модель авто:</h5>
+                </div>
+                <div class="col-4">
+                    <select asp-for="@Model.Post.ModelCar" name="ModelCar" required id="ModelCar" class="form-select" aria-label="Default select example">
+                       
+                        <option value="3 series">3 series</option>
+                        <option value="4 series">4 series</option>
+                        <option value="5 series">5 series</option>
+                        <option value="7 series">7 series</option>
+                        <option value="M3">M3</option>
+                        <option value="M4">M4</option>
+                        <option value="M5">M5</option>
+                        <option value="M8">M8</option>
+                        <option value="X1">X1</option>
+                        <option value="X2">X2</option>
+                        <option value="X3">X3</option>
+                        <option value="X4">X4</option>
+                        <option value="X5">X5</option>
+                        <option value="X6">X6</option>
+                        <option value="X7">X7</option>
+                        <option value="X3M">X3M</option>
+                        <option value="X4M">X4M</option>
+                        <option value="X5M">X5M</option>
+                        <option value="X6M">X6M</option>
+                        <option value="C-Class">C-Class</option>
+                        <option value="CLA-Class">CLA-Class</option>
+                        <option value="CLS-Class">CLS-Class</option>
+                        <option value="E-Class">E-Class</option>
+                        <option value="GLA-Class">GLA-Class</option>
+                        <option value="GLS-Class">GLS-Class</option>
+                        <option value="Maybach">Maybach</option>
+                        <option value="Maybach">Maybach</option>
+                        <option value="Maybach">Maybach</option>
+                        <option value="Maybach">Maybach</option>
+                        <option value="Maybach">Maybach</option>
+                        <option value="Maybach">Maybach</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="A3">A3</option>
+                        <option value="A4">A4</option>
+                        <option value="A5">A5</option>
+                        <option value="A6">A6</option>
+                        <option value="A7">A7</option>
+                        <option value="A8">A8</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row mt-3">
+                <div class="col-2 text-end">
+                    <h5>Рік випуску:</h5>
+                </div>
+                <div class="col-2">
+                    <select asp-for="@Model.Post.GraduationYear" name="GraduationYear" required id="GraduationYear" class="form-select" aria-label="Default select example">
+                       
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+            </div>
+
+
+           
+
+            <div class=" row mt-3">
+                <div class="col-2 text-end">
+                    <h5>Пробіг:</h5>
+                </div>
+                <div class="col-2">
+                    <select asp-for="@Model.Post.MileageCar" name="MileageCar" required id="MileageCar" class="form-select" aria-label="Default select example">
+                       
+                        <option value="5000-15000">5000-15000</option>
+                        <option value="15000-50000">15000-50000</option>
+                        <option value="50000-150000">50000-150000</option>
+                        <option value="150000-300000">150000-300000</option>
+                        <option value="300000-500000">300000-500000</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row mt-3">
+                <div class="col-2 text-end">
+                    <h5>Тип кузова:</h5>
+                </div>
+                <div class="col-4">
+                    <select asp-for="@Model.Post.BodyType" name="BodyType" required id="BodyType" class="form-select" aria-label="Default select example">
+                       
+                        <option value="Седан">Седан</option>
+                        <option value="Універсал">Універсал</option>
+                        <option value="Купе">Купе</option>
+                        <option value="Кросовер">Кросовер</option>
+                        <option value="Хетчбек">Хетчбек</option>
+                        <option value="Мікроавтобуси">Мікроавтобуси</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row mt-3">
+                <div class="col-2 text-end">
+                    <h5>Місто:</h5>
+                </div>
+                <div class="col-4">
+                    <select asp-for="@Model.Post.Sity" name="Sity" required id="Sity" class="form-select" aria-label="Default select example">
+                       
+                        <option value="Kyiv">Kyiv</option>
+                        <option value="Odessa">Odessa</option>
+                        <option value="Lviv">Lviv</option>
+                        <option value="Rivne">Rivne</option>
+                        <option value="Poltava">Poltava</option>
+                        <option value="Chernigiv">Chernigiv</option>
+                        <option value="Ternopil">Ternopil</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row mt-3">
+                <div class="col-2 text-end">
+                    <h5>Номер автомобіля:</h5>
+                </div>
+                <div class="mb-3 col-2">
+                    <input asp-for="@Model.Post.Number" name="Number" required id="Number" type="text" class="form-control text-center">
+                </div>
+            </div>
+            <hr />
+            <h4>Опис автомобіля</h4>
+
+            <div class="form-floating col-6">
+                <textarea asp-for="@Model.Post.Description" name="Description" required id="Description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Comments</label>
+            </div>
+            <hr />
+            <h4>Характеристики авто</h4>
+
+            <div class=" row mt-5">
+                <div class="col-2 text-end">
+                    <h5>Колір:</h5>
+                </div>
+                <div class="col-2">
+                    <select asp-for="@Model.Post.Color" name="Color" required id="Color" class="form-select" aria-label="Default select example">
+                       
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                        <option value="Red">Red</option>
+                        <option value="Green">Green</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Gray">Gray</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Pink">Pink</option>
+                        <option value="Purple">Purple</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row mt-3">
+                <div class="col-2 text-end">
+                    <h5>Пригнаний з:</h5>
+                </div>
+                <div class="col-2">
+                    <select asp-for="@Model.Post.ProducingCountry" required name="ProducingCountry" id="ProducingCountry" class="form-select" aria-label="Default select example">
+                        
+                        <option value="Germany">Germany</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Italy">Italy</option>
+                        <option value="UK">UK</option>
+                        <option value="USA">USA</option>
+                        <option value="Franch">Franch</option>
+                        <option value="Ukraine">Ukraine</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row mt-3">
+                <div class="col-2 text-end">
+                    <h5>Участь в ДТП:</h5>
+                </div>
+                <div class="col-2">
+                    <select asp-for="@Model.Post.Accident" required name="Accident" id="Accident" class="form-select" aria-label="Default select example">
+                        
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+            </div>
+            <hr />
+            <h4>Вартість</h4>
+
+            <div class=" row mt-3">
+                <div class="col-2 text-end">
+                    <h5>Ціна</h5>
+                </div>
+                <div class=" col-2">
+                    <input asp-for="@Model.Post.Price" name="Price" id="Price" type="number" class="" placeholder="price">
+                </div>
+                <div class="col-1">
+                    <select asp-for="@Model.Post.Currency" required name="Currency" id="Currency" class="form-select" aria-label="Default select example">
+                        
+                        <option value="$">USD</option>
+                        <option value="€">EUR</option>
+                        <option value="₴">UAN</option>
+                    </select>
+                </div>
+            </div>
+            <hr />
+            <h4>Телефон продавця</h4>
+
+            <div class=" row mt-5">
+                <div class="col-2 text-end">
+                    <h5>Телефон</h5>
+                </div>
+                <div class=" col-2">
+                    <input asp-for="@Model.Post.Phone" required name="Phone" id="Phone" type="text" class="" placeholder="+380">
+                </div>
+            </div>
+            <hr />
+            <button type="submit" class="btn btn-success">Розмістити оголошення</button>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        @*<div class="container">
+        <div class="row justify-content-center align-items-center mt-5">
+        <div class="">
+        <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+
+        <div class="mb-md-5 mt-md-4 pb-5">
+
+        <h2 class="fw-bold mb-2 text-uppercase">Add Task</h2>
+        <form method="post" asp-action="AddTask">
+        <div class="form-outline form-white mb-4">
+        <input value="@user.Id" type="hidden" name="Id" asp-for="@Model.UserId"/>
+        <label class="form-label" for="name">Name Task</label>
+        <input type="text" asp-for="@Model.Name" required name="name" id="name" class="form-control form-control-lg" />
+        </div>
+
+        <div class="form-outline form-white mb-4">
+        <label class="form-label" for="description">Description</label>
+        <input type="text" asp-for="@Model.Description" required name="description" id="description" class="form-control form-control-lg" />
+        </div>
+
+        <div class="form-outline form-white mb-4">
+        <label class="form-label" for="date">Deadline</label>
+        <input type="date" asp-for="@Model.Date" required name="date" id="date" class="form-control form-control-lg" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Add Task</button>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </section>
+        </div>
+        </div>
+        </div>*@
+    </div>

@@ -1,0 +1,68 @@
+﻿@using AutoRia.Core.Entities.User;
+@using Microsoft.AspNetCore.Identity;
+@using AutoRia.Core.Dto_s.Post;
+@model ImageDto
+@inject UserManager<AppUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+    var email = await UserManager.GetEmailAsync(user);
+}
+
+<!-- Navbar -->
+<div class="container">
+    <nav class="navbar navbar-expand-lg  bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0 logotext" asp-action="Index">
+                    Auto Ria
+                </a>
+
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <!-- Icon -->
+                <a class="text-reset me-3" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <!-- Avatar -->
+
+                <a asp-action="Profile" asp-route-id="@user.Id" class="btn btn-outline-primary m-1">@user.UserName</a>
+                <a asp-action="Logout" class="btn btn-outline-primary m-1">Log Out</a>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+
+    <div class="container">
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/img/00a3d66e-321c-4d88-8667-922d60e150db.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="~/img/14560c61-6f89-4f14-b654-47c9354944a3.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="~/img/50dc54e2-7b47-4635-9884-886e5a23221c.png" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    </div>
+
+   

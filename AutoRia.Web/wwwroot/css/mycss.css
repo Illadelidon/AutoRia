@@ -1,0 +1,383 @@
+﻿h1 {
+    color: aquamarine;
+}
+
+body {
+    /*background-color: #303440;*/
+}
+
+.logotext {
+    font-family: 'Fugaz One', sans-serif;
+    font-size: 32px;
+    color: #3498db
+}
+
+.backgroundBlack {
+    background-color: #1f2126;
+}
+
+.card-big-shadow {
+    max-width: 320px;
+    position: relative;
+    z-index: 1;
+}
+
+.coloured-cards .card {
+    margin-top: 30px;
+}
+
+.card[data-radius="none"] {
+    border-radius: 0px;
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: none; /* Змінено box-shadow на none */
+    background-color: #FFFFFF;
+    color: #252422;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+
+    .card[data-background="image"] .title, .card[data-background="image"] .stats, .card[data-background="image"] .category, .card[data-background="image"] .description, .card[data-background="image"] .content, .card[data-background="image"] .card-footer, .card[data-background="image"] small, .card[data-background="image"] .content a, .card[data-background="color"] .title, .card[data-background="color"] .stats, .card[data-background="color"] .category, .card[data-background="color"] .description, .card[data-background="color"] .content, .card[data-background="color"] .card-footer, .card[data-background="color"] small, .card[data-background="color"] .content a {
+        color: #FFFFFF;
+    }
+
+    .card.card-just-text .content {
+        padding: 50px 65px;
+        text-align: center;
+    }
+
+    .card .content {
+        padding: 20px 20px 10px 20px;
+    }
+
+    .card[data-color="blue"] .category {
+        color: #7a9e9f;
+    }
+
+    .card .category, .card .label {
+        font-size: 24px;
+        margin-bottom: 0px;
+    }
+
+
+
+h4 {
+    
+}
+
+
+h6, .h6 {
+    font-size: 0.9em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.card .description {
+    font-size: 16px;
+    color: #66615b;
+}
+
+.content-card {
+    margin-top: 30px;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+/*======== COLORS ===========*/
+.card[data-color="blue"] {
+    background: #b8d8d8;
+}
+
+    .card[data-color="blue"] .description {
+        color: #506568;
+    }
+
+.card[data-color="green"] {
+    background: #d5e5a3;
+}
+
+    .card[data-color="green"] .description {
+        color: #60773d;
+    }
+
+    .card[data-color="green"] .category {
+        color: #92ac56;
+    }
+
+.card[data-color="yellow"] {
+    background: #ffe28c;
+}
+
+    .card[data-color="yellow"] .description {
+        color: #b25825;
+    }
+
+    .card[data-color="yellow"] .category {
+        color: #d88715;
+    }
+
+.card[data-color="brown"] {
+    background: #d6c1ab;
+}
+
+    .card[data-color="brown"] .description {
+        color: #75442e;
+    }
+
+    .card[data-color="brown"] .category {
+        color: #a47e65;
+    }
+
+.card[data-color="purple"] {
+    background: #baa9ba;
+}
+
+    .card[data-color="purple"] .description {
+        color: #3a283d;
+    }
+
+    .card[data-color="purple"] .category {
+        color: #5a283d;
+    }
+
+.card[data-color="orange"] {
+    background: #ff8f5e;
+}
+
+    .card[data-color="orange"] .description {
+        color: #772510;
+    }
+
+    .card[data-color="orange"] .category {
+        color: #e95e37;
+    }
+
+
+.btnAround {
+    border-radius: 50%;
+}
+
+.addImg {
+    height: 50px;
+    width: 150px;
+}
+
+#fixedButton {
+    position: fixed;
+    bottom: 30px; /* Змініть це значення відповідно до вашого бажаного відступу від нижнього краю */
+    right: 30px; /* Змініть це значення відповідно до вашого бажаного відступу від правого краю */
+}
+
+.img-account-profile {
+    height: 10rem;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    background-color:lightgray;
+}
+
+    .card .card-header {
+        font-weight: 500;
+    }
+
+.card-header:first-child {
+    border-radius: 0.35rem 0.35rem 0 0;
+}
+
+.card-header {
+    padding: 1rem 1.35rem;
+    margin-bottom: 0;
+    background-color: rgba(33, 40, 50, 0.03);
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+}
+
+.form-control, .dataTable-input {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #69707a;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c5ccd6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.nav-borders .nav-link.active {
+    color: #0061f2;
+    border-bottom-color: #0061f2;
+}
+
+.nav-borders .nav-link {
+    color: #69707a;
+    border-bottom-width: 0.125rem;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
+/* Category Ads */
+
+#ads {
+    margin: 30px 0 30px 0;
+}
+
+    #ads .card-notify-badge {
+        position: absolute;
+        left: -10px;
+        top: -20px;
+        background: #f2d900;
+        text-align: center;
+        border-radius: 30px 30px 30px 30px;
+        color: #000;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    #ads .card-notify-year {
+        position: absolute;
+        right: -10px;
+        top: -20px;
+        background: #ff4444;
+        border-radius: 50%;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        width: 50px;
+        height: 50px;
+        padding: 15px 0 0 0;
+    }
+
+
+    #ads .card-detail-badge {
+        background: #f2d900;
+        text-align: center;
+        border-radius: 30px 30px 30px 30px;
+        color: #000;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+
+
+    #ads .card:hover {
+        background: #fff;
+        box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+
+    #ads .card-image-overlay {
+        font-size: 20px;
+    }
+
+
+        #ads .card-image-overlay span {
+            display: inline-block;
+        }
+
+
+    #ads .ad-btn {
+        text-transform: uppercase;
+        width: 150px;
+        height: 40px;
+        border-radius: 80px;
+        font-size: 16px;
+        line-height: 35px;
+        text-align: center;
+        border: 3px solid #e6de08;
+        display: block;
+        text-decoration: none;
+        margin: 20px auto 1px auto;
+        color: #000;
+        overflow: hidden;
+        position: relative;
+        background-color: #e6de08;
+    }
+
+        #ads .ad-btn:hover {
+            background-color: #e6de08;
+            color: #1e1717;
+            border: 2px solid #e6de08;
+            background: transparent;
+            transition: all 0.3s ease;
+            box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+        }
+
+    #ads .ad-title h5 {
+        text-transform: uppercase;
+        font-size: 18px;
+    }
+
+
+
+.car-image-block {
+    padding: 0px;
+    margin: 0px;
+}
+
+    .car-image-block img {
+        min-height: 200px;
+        overflow: hidden;
+    }
+
+
+#carouselExample {
+    max-width: 500px; /* Задаємо максимальну ширину до 50px */
+    margin: auto; /* Центруємо елемент по горизонталі */
+}
+
+.carousel-inner {
+    width: 100%; /* Забезпечуємо 100% ширину для внутрішнього контейнера каруселі */
+}
+
+.carousel-item {
+    width: 100%; /* Забезпечуємо 100% ширину для кожного елемента каруселі */
+}
+
+    .carousel-item img {
+        width: 100%; /* Забезпечуємо 100% ширину для зображення всередині каруселі */
+        height: auto; /* Автоматично розраховуємо висоту, щоб уникнути деформації */
+    }
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* Забезпечуємо 5% ширину для кнопок перегортання */
+}

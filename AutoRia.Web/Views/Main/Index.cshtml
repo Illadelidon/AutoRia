@@ -1,0 +1,129 @@
+﻿@using AutoRia.Core.Dto_s.Post;
+@using AutoRia.Core.Entities.User;
+@using Microsoft.AspNetCore.Identity;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@using X.PagedList;
+@model IPagedList<PostDto>
+@inject UserManager<AppUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+    var email = await UserManager.GetEmailAsync(user);
+}
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Navbar -->
+<div class="container">
+    <nav class="navbar navbar-expand-lg  bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0 logotext" asp-action="Index">
+                    Auto Ria
+                </a>
+
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <!-- Icon -->
+                
+                <!-- Avatar -->
+
+
+
+                <a asp-action="Profile" asp-route-id="@user.Id" class="btn btn-outline-primary m-1">@user.UserName</a>
+                <a asp-action="Logout" class="btn btn-outline-primary m-1">Log Out</a>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <div class="row">
+        <div class="col-8">
+           
+
+            <button type="button" class="btn btn-link">Вживані авто</button>
+            <button type="button" class="btn btn-link">Нові авто</button>
+
+        </div>
+        <div class="col-4 text-end">
+            <a asp-action="AddTask" class="btn btn-success mt-1">Продати авто</a>
+        </div>
+
+    </div>
+  
+
+
+
+
+
+
+    <div class="container">
+        <br>
+        <br>
+        <div class="row" id="ads">
+            <!-- Category Card -->
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card rounded">
+                        <div class="card-image">
+                            <span class="card-notify-badge">@item.Sity</span>
+                            <span class="card-notify-year">@item.Price@item.Currency</span>
+                            <img class="img-fluid" src="~/img/@item.MainImage" alt="Alternate Text" />
+
+                        </div>
+                        <div class="card-image-overlay m-auto">
+                            <span class="card-detail-badge">@item.MileageCar км</span>
+                            <span class="card-detail-badge">@item.GraduationYear</span>
+                            <span class="card-detail-badge">@item.Color</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="ad-title m-auto">
+                                <h5>@item.BrandCar  @item.ModelCar</h5>
+                            </div>
+                            <a class="ad-btn" asp-action="AboutCar" asp-route-id="@item.Id">View</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+

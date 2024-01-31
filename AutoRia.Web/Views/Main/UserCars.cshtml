@@ -1,0 +1,123 @@
+﻿@using AutoRia.Core.Entities.User;
+@using Microsoft.AspNetCore.Identity;
+@using AutoRia.Core.Dto_s.Post;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@using X.PagedList;
+@model List<PostDto>
+@inject UserManager<AppUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+    var email = await UserManager.GetEmailAsync(user);
+}
+<!-- Navbar -->
+<div class="container">
+    <nav class="navbar navbar-expand-lg  bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0 logotext" asp-action="Index">
+                    Auto Ria
+                </a>
+
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <!-- Icon -->
+                <a class="text-reset me-3" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <!-- Avatar -->
+
+                <a asp-action="Profile" asp-route-id="@user.Id" class="btn btn-outline-primary m-1">@user.UserName</a>
+                <a asp-action="Logout" class="btn btn-outline-primary m-1">Log Out</a>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+
+    <div class="mt-3">
+    <h2 >My Advertisement</h2>
+    </div>
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <div class="container">
+        <br>
+            <br>
+            <div class="row" id="ads">
+                <!-- Category Card -->
+                @foreach(var item in Model)
+                {
+                <div class="col-md-4">
+                    <div class="card rounded">
+                        <div class="card-image">
+                            <span class="card-notify-badge">@item.Sity</span>
+                            <span class="card-notify-year">@item.GraduationYear</span>
+                            <img class="img-fluid" src="~/img/@item.MainImage" alt="Alternate Text" />
+
+                        </div>
+                        <div class="card-image-overlay m-auto">
+                            <span class="card-detail-badge">@item.MileageCar</span>
+                            <span class="card-detail-badge">$@item.Price</span>
+                            <span class="card-detail-badge">@item.Color</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="ad-title m-auto">
+                                <h5>@item.BrandCar  @item.ModelCar</h5>
+                            </div>
+                            <a class="ad-btn" href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
