@@ -186,18 +186,23 @@ namespace AutoRia.Web.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
-            var posts = await _postService.Get(id);
+            var posts = await _postService.GetByIdAsync(id);
 
-            if (posts == null) return NotFound();
             return View(posts);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(PostDto model)
+        public async Task<IActionResult> Edit(EditPostDto model)
         {
+            
             await _postService.Update(model);
             return RedirectToAction("Index");
         }
+
+
+
+
+
         public async Task<IActionResult> UserCars()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -217,5 +222,6 @@ namespace AutoRia.Web.Controllers
             var post=await _postService.Get(id);
             return View(post);
         }
+       
     }
 }

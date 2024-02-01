@@ -17,6 +17,7 @@ namespace AutoRia.Core.AutoMapper.Posts
             CreateMap<PostDto, Post>().ReverseMap();
             CreateMap<ImageDto, PostsImg>().ReverseMap();
             CreateMap<FormFile, PostsImg>();
+            CreateMap<EditPostDto, Post>().ReverseMap();
         }
     }
 }

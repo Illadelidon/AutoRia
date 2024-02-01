@@ -24,7 +24,9 @@ namespace AutoRia.Infrastructure.Context
                 .WithMany(i => i.Imgs)
                 .HasForeignKey(i => i.PostId);
 
-
+            builder.Entity<Post>()
+                .Property(p => p.UserId)
+                .ValueGeneratedOnAdd();
             
             base.OnModelCreating(builder);
             builder.SeedCarInfo();

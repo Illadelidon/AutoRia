@@ -119,6 +119,8 @@ namespace AutoRia.Core.Services
             return new List<PostDto>();
         }
 
+      
+
         public async Task<List<PostDto>> GetAllPost()
         {
             var result = await _postRepo.GetAll(new Post());
@@ -138,21 +140,66 @@ namespace AutoRia.Core.Services
             return _mapper.Map<PostDto>(post);
         }
 
+        public async Task<EditPostDto?> GetForEdit(int id)
+        {
+            if (id < 0) return null; // exception handling
 
+            var post = await _postRepo.GetByID(id);
+
+            if (post == null) return null; // exception handling
+
+            return _mapper.Map<EditPostDto>(post);
+        }
 
         public Task<List<PostDto>> Search(string searchString)
         {
             throw new NotImplementedException();
         }
 
-        public async Task Update(PostDto model)
+        public async Task Update(EditPostDto model)
         {
+            var currentPost = await _postRepo.GetByID(model.Id);
+            /*if (imageDto.File.Count > 0)
+            {
+                string webRootPath = _webHostEnvironment.WebRootPath;
+                string upload = Path.Combine(webRootPath, "img");
+
+                string existingFilePath = Path.Combine(upload, currentPost.MainImage);
+
+                if (File.Exists(existingFilePath) && model.MainImage != null)
+                {
+                    File.Delete(existingFilePath);
+                }
+
+                var files = imageDto.File;
+
+                string fileName = Guid.NewGuid().ToString();
+                string extension = Path.GetExtension(files[0].FileName);
+                using (var fileStream = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
+                {
+                    files[0].CopyTo(fileStream);
+                }
+                model.MainImage = fileName + extension;
+
+            }
+            else
+            {
+                model.MainImage = currentPost.MainImage;
+            }*/
+
+            model.MainImage = currentPost.MainImage;
+            model.UserId = currentPost.UserId;
+
             await _postRepo.Update(_mapper.Map<Post>(model));
             await _postRepo.Save();
         }
-       /* public async Task<List<ImageDto>> GetImages(int postId)
+        public async Task<EditPostDto> GetByIdAsync(int id)
         {
-            await _postRepo.
-        }*/
+            var post= await _postRepo.GetByID(id);
+
+            var mappedPost= _mapper.Map<Post, EditPostDto>(post);
+
+            return mappedPost;
+        }
     }
 }

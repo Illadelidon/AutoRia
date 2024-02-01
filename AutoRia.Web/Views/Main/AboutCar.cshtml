@@ -1,7 +1,7 @@
 ﻿@using AutoRia.Core.Entities.User;
 @using Microsoft.AspNetCore.Identity;
 @using AutoRia.Core.Dto_s.Post;
-@model ImageDto
+@model PostDto
 @inject UserManager<AppUser> UserManager
 
 @{
@@ -41,17 +41,46 @@
     <!-- Navbar -->
 
 
-    <div class="container">
+    
+    <div class="container row mt-3">
+
+
+
+        <div class="card col-4">
+            <ul class="mt-2 list-group list-group-flush border-start-1 border-end-1">
+                <li class="list-group-item px-3">@Model.BrandCar @Model.ModelCar</li>
+                <li class="list-group-item px-3 priceText">Ціна:@Model.Price @Model.Currency</li>
+                <li class="list-group-item px-3">Рік:@Model.GraduationYear</li>
+                <li class="list-group-item px-3">Пробіг:@Model.MileageCar км</li>
+                <li class="list-group-item px-3">Колір:@Model.Color</li>
+                <li class="list-group-item px-3">Місто:@Model.Sity</li>
+                <li class="list-group-item px-3">Дтп:@Model.Accident</li>
+                <li class="list-group-item px-3">Пригнаний з:@Model.ProducingCountry</li>
+                @if (Model.UserId == user.Id)
+                {
+                    <div class="row justify-content-between">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="mt-5 m-2 btn btn-warning col-4  ">Edit</a>
+                        <a asp-action="DeleteById" asp-route-id="@Model.Id" class="mt-5 m-2 btn btn-danger col-4">Delete</a>
+                    </div>
+                    
+                }
+            </ul>
+        </div>
+
+
+
+      
+        <div class="col-4">
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="~/img/00a3d66e-321c-4d88-8667-922d60e150db.png" class="d-block w-100" alt="...">
+                        <img src="~/img/@Model.MainImage" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="~/img/14560c61-6f89-4f14-b654-47c9354944a3.png" class="d-block w-100" alt="...">
+                        <img src="~/img/@Model.MainImage" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="~/img/50dc54e2-7b47-4635-9884-886e5a23221c.png" class="d-block w-100" alt="...">
+                        <img src="~/img/@Model.MainImage" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -63,6 +92,9 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+        </div>
     </div>
 
-   
+
+
+    

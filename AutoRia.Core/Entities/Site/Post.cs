@@ -30,9 +30,9 @@ namespace AutoRia.Core.Entities.Site
         public string Price { get; set; }
         public string Currency { get; set; }
         public string Phone { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string UserId { get; set; }
         public string Number { get; set; }
-        public string EngineVolume { get; set; }
         public AppUser User { get; set; }
         public List<PostsImg> Imgs { get; set; }
         public string MainImage { get; set; }

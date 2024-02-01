@@ -12,10 +12,12 @@ namespace AutoRia.Core.Interfaces
         Task<List<PostDto>> GetAll(string id);
         Task<List<PostDto>> GetAllPost();
         Task<PostDto?> Get(int id);
+        Task<EditPostDto?> GetForEdit(int id);
         Task Create(PostDto model);
-        Task Update(PostDto model);
+        Task Update(EditPostDto model);
         Task Delete(int id);
         Task<PostDto> GetById(int id);
+        Task<EditPostDto> GetByIdAsync(int id);
 
         Task<List<PostDto>> Search(string searchString);
     }

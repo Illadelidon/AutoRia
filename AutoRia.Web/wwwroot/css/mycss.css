@@ -360,7 +360,8 @@ a:hover, a:focus {
 
 
 #carouselExample {
-    max-width: 500px; /* Задаємо максимальну ширину до 50px */
+    min-width:800px;
+    max-width: 2000px; /* Задаємо максимальну ширину до 50px */
     margin: auto; /* Центруємо елемент по горизонталі */
 }
 
@@ -380,4 +381,8 @@ a:hover, a:focus {
 .carousel-control-prev,
 .carousel-control-next {
     width: 5%; /* Забезпечуємо 5% ширину для кнопок перегортання */
+}
+.priceText{
+    color:green;
+    font-weight:bold;
 }
